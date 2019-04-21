@@ -40,6 +40,27 @@ $ npm i superagent
     message.channel.send(embed) //Enviamos el mensaje embed al canal.
 ```
 
+En este otro ejemplo, nos ayudaremos del módulo `got`, también teniendo en cuenta a `discord.js`:
+
+**Instalación del módulo got:**
+
+```js
+$ npm i got
+```
+**Código ejemplo:**
+
+```js
+  const got = require('got'); //Utilizamos otro módulo, que hace la misma función que el anterior.
+  got('https://firefiles.herokuapp.com/hug').then(res => { //Obtiene los resultados de la página, en este caso el endpoint será "hug" y luego hace lo siguiente:
+    
+  message.channel.send(JSON.parse(res.body).url); //Enviamos el URL al canal.
+    /*
+        NOTA:
+        Tambien puede usar message.channel.send({files: [JSON.parse(res.body).url)]}); para mostrar la imágen sin link, o crear un embed.
+    */
+});
+```
+
 Enlaces:
 ==============
 Tenemos un servidor de Discord, en el que ofrecemos soporte, hay mas codes de ejemplos, puedes aportar tus ideas, se notificarán de nuevos endpoints y muchas cosas más! [[Click Aquí.]](https://discord.gg/6DJxrSZ)
